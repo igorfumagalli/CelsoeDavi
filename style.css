@@ -1,0 +1,165 @@
+/* =========================================================
+   Site: Fotossíntese – Biologia 1º ano
+   Grupo: Davi Oliveira e Celso Cézar
+   Arquivo: style.css (usado por todas as páginas)
+   ========================================================= */
+
+/* ---------- 1. VARIÁVEIS DE COR E TIPOGRAFIA ---------- */
+:root {
+  --verde-escuro: #1f5d3a;   /* títulos, menu, rodapé */
+  --verde: #3a9a5b;          /* destaques */
+  --verde-claro: #e3f3e8;    /* fundos suaves */
+  --azul-claro: #e6f4fb;     /* fundos alternativos */
+  --azul: #4aa3d4;           /* detalhes */
+  --branco: #ffffff;
+  --texto: #1d2b24;
+  --raio: 10px;
+}
+
+/* ---------- 2. RESET E BASE ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  color: var(--texto);
+  background: var(--branco);
+  line-height: 1.7;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a:focus-visible { outline: 3px solid var(--azul); outline-offset: 2px; }
+
+/* ---------- 3. MENU FIXO NO TOPO ---------- */
+.menu {
+  position: sticky;           /* fica visível ao rolar a página */
+  top: 0;
+  z-index: 10;
+  background: var(--verde-escuro);
+}
+
+.menu__interno {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.menu__logo { color: var(--branco); font-weight: 700; padding: 14px 0; }
+
+.menu__lista { list-style: none; display: flex; flex-wrap: wrap; }
+
+.menu__lista a {
+  display: block;
+  padding: 14px 16px;
+  color: var(--branco);
+  text-decoration: none;
+}
+
+.menu__lista a:hover,
+.menu__lista a.ativo { background: var(--verde); }   /* .ativo = página atual */
+
+/* ---------- 4. ESTRUTURA GERAL ---------- */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+.secao { padding: 56px 0; }
+.secao--verde { background: var(--verde-claro); }
+.secao--azul  { background: var(--azul-claro); }
+
+h1, h2, h3 { color: var(--verde-escuro); line-height: 1.25; }
+h2 { font-size: 1.8rem; margin-bottom: 16px; }
+h3 { font-size: 1.2rem; margin-bottom: 8px; }
+p  { margin-bottom: 14px; max-width: 75ch; }
+
+/* ---------- 5. CABEÇALHO DE PÁGINA (HERO) ---------- */
+.hero {
+  background: linear-gradient(135deg, var(--verde-claro), var(--azul-claro));
+  padding: 72px 0 56px;
+}
+.hero h1 { font-size: 2.8rem; margin-bottom: 12px; }
+.hero p  { font-size: 1.15rem; }
+
+/* ---------- 6. GRADES E CARTÕES ---------- */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.cartao {
+  background: var(--branco);
+  border-left: 5px solid var(--verde);
+  border-radius: var(--raio);
+  padding: 20px;
+}
+.cartao--azul { border-left-color: var(--azul); }
+
+/* ---------- 7. VÍDEO EM DESTAQUE ---------- */
+.video-destaque {
+  background: var(--verde-escuro);
+  border-radius: var(--raio);
+  padding: 24px;
+  color: var(--branco);
+}
+.video-destaque h2 { color: var(--branco); }
+
+.video-destaque__moldura {
+  position: relative;
+  aspect-ratio: 16 / 9;       /* proporção de vídeo */
+  background: #0c2417;
+  border: 2px dashed var(--azul-claro);
+  border-radius: var(--raio);
+  overflow: hidden;
+}
+.video-destaque__moldura video,
+.video-destaque__moldura iframe { width: 100%; height: 100%; border: 0; }
+
+.video-destaque__aviso { font-size: .9rem; margin: 12px 0 0; }
+
+/* ---------- 8. IMAGENS COM LEGENDA E CRÉDITO ---------- */
+.figura { background: var(--branco); border-radius: var(--raio); overflow: hidden; }
+.figura img { width: 100%; }
+.figura figcaption { padding: 10px 14px; font-size: .88rem; }
+.figura small { display: block; color: #55665c; }
+
+/* ---------- 9. TABELA ---------- */
+.tabela-rolagem { overflow-x: auto; }   /* rolagem lateral no celular */
+
+table { width: 100%; border-collapse: collapse; background: var(--branco); }
+caption { text-align: left; font-weight: 700; padding: 8px 0; color: var(--verde-escuro); }
+th, td { padding: 12px 14px; text-align: left; border: 1px solid #cfe3d6; vertical-align: top; }
+thead th { background: var(--verde); color: var(--branco); }
+tbody th { background: var(--verde-claro); }
+tbody tr:nth-child(even) td { background: #f6fbf8; }
+
+/* ---------- 10. EQUAÇÃO ---------- */
+.equacao {
+  background: var(--branco);
+  border: 2px solid var(--verde);
+  border-radius: var(--raio);
+  padding: 20px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--verde-escuro);
+}
+
+/* ---------- 11. RODAPÉ ---------- */
+.rodape {
+  background: var(--verde-escuro);
+  color: var(--branco);
+  text-align: center;
+  padding: 28px 20px;
+}
+.rodape p { margin: 0 auto 4px; }
+
+/* ---------- 12. RESPONSIVO (CELULAR) ---------- */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 2.1rem; }
+  h2 { font-size: 1.5rem; }
+  .menu__interno { justify-content: center; }
+  .secao { padding: 40px 0; }
+}
